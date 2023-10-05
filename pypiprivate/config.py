@@ -1,9 +1,5 @@
 import os
-
-try:
-    from ConfigParser import SafeConfigParser
-except ImportError:
-    from configparser import SafeConfigParser
+from configparser import ConfigParser
 
 
 class Config(object):
@@ -12,11 +8,11 @@ class Config(object):
         self.path = os.path.expanduser(path)
         self.env = env
         if env_interpolation:
-            self.c = SafeConfigParser(env)
+            self.c = ConfigParser(env)
         else:
-            self.c = SafeConfigParser()
+            self.c = ConfigParser()
         with open(self.path) as f:
-            self.c.readfp(f)
+            self.c.read_file(f)
 
     @property
     def storage(self):
