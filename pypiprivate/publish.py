@@ -2,7 +2,7 @@ import os
 import re
 import logging
 
-from pkg_resources import packaging
+from packaging.version import Version
 from jinja2 import Environment
 
 
@@ -98,7 +98,7 @@ def update_root_index(storage):
 
 
 def publish_package(name, version, storage, project_path, dist_dir):
-    version = packaging.version.Version(version)
+    version = Version(version)
     dists = find_pkg_dists(project_path, dist_dir, name, version)
     if not dists:
         raise DistNotFound((

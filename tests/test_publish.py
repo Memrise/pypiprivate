@@ -5,11 +5,8 @@ try:
 except ImportError:
     from unittest import mock
 
-from pkg_resources import packaging
+from packaging.version import Version
 import pytest
-
-
-Version = packaging.version.Version
 
 
 def test__filter_pkg_dists():

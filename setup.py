@@ -30,7 +30,7 @@ setup(
     license='MIT License',
     description='Private package management tool for Python projects',
     long_description=long_desc,
-    install_requires=['setuptools>=36.0.0',
+    install_requires=['packaging>=24.0',
                       'Jinja2>=3.1.2',
                       'boto3>=1.23.0'],
     extras_require=extras_require,
